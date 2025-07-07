@@ -10,7 +10,6 @@ import Loader from "./Loader";
 import Error from "./Error";
 import GenreCard from "./GenreCard";
 import SearchRes from "./SearchRes";
-import Play from "./Play";
 
 export {
   TopPlay,
@@ -24,5 +23,4 @@ export {
   Error,
   GenreCard,
   SearchRes,
-  Play,
 };

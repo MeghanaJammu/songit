@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable quotes */
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useRef, useEffect } from "react";
@@ -32,7 +33,10 @@ const Player = ({
 
   return (
     <audio
-      src={activeSong?.attributes?.previews?.[0]?.url}
+      src={
+        activeSong?.attributes?.previews?.[0]?.url ||
+        activeSong?.hub?.actions[1]?.uri
+      }
       ref={ref}
       loop={repeat}
       onEnded={onEnded}

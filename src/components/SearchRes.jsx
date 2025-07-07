@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import Play from "./Play";
+import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
 
 const SearchRes = ({ song, isPlaying, i, activeSong, data }) => {
@@ -21,12 +21,12 @@ const SearchRes = ({ song, isPlaying, i, activeSong, data }) => {
       <div className="relative group w-full h-56">
         <div
           className={`absolute inset-0 justify-center items-center bg-opacity-50  group-hover:flex ${
-            activeSong?.attributes?.name === song?.title
+            activeSong?.attributes?.name || activeSong?.title === song?.title
               ? "flex bg-black bg-opacity-70"
               : "hidden"
           }`}
         >
-          <Play
+          <PlayPause
             isPlaying={isPlaying}
             activeSong={activeSong}
             song={song}
