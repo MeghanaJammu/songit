@@ -1,3 +1,5 @@
+Add your own RAPID API KEYS(SHAZHAM CORE API) to see the application
+
 # Project Song It
 
 React.js Music Application. 
