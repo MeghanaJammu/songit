@@ -1,14 +1,16 @@
-import Sidebar from './Sidebar';
-import Searchbar from './Searchbar';
-import SongCard from './SongCard';
-import TopPlay from './TopPlay';
-import ArtistCard from './ArtistCard';
-import DetailsHeader from './DetailsHeader';
-import SongBar from './SongBar';
-import RelatedSongs from './RelatedSongs';
-import MusicPlayer from './MusicPlayer';
-import Loader from './Loader';
-import Error from './Error';
+/* eslint-disable quotes */
+import Sidebar from "./Sidebar";
+import Searchbar from "./Searchbar";
+import SongCard from "./SongCard";
+import TopPlay from "./TopPlay";
+import ArtistCard from "./ArtistCard";
+import DetailsHeader from "./DetailsHeader";
+import MusicPlayer from "./MusicPlayer";
+import Loader from "./Loader";
+import Error from "./Error";
+import GenreCard from "./GenreCard";
+import SearchRes from "./SearchRes";
+import Play from "./Play";
 
 export {
   TopPlay,
@@ -17,9 +19,10 @@ export {
   Searchbar,
   ArtistCard,
   DetailsHeader,
-  SongBar,
-  RelatedSongs,
   MusicPlayer,
   Loader,
   Error,
+  GenreCard,
+  SearchRes,
+  Play,
 };

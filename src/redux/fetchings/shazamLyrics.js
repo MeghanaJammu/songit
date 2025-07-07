@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable comma-dangle */
 /* eslint-disable quotes */
 // src/redux/fetchings/shazamV2Api.js
@@ -10,7 +11,7 @@ export const shazamLyricsApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         "x-rapidapi-key",
-        "1f02b793acmsh4a3267589c7b02dp172addjsnd2f282ad0b23"
+        "459395da6amsh780423b2e732f18p162a45jsn32a3d58a41de"
       );
       headers.set("X-RapidAPI-Host", "shazam-core.p.rapidapi.com");
       return headers;
@@ -20,7 +21,11 @@ export const shazamLyricsApi = createApi({
     getSongDetails: builder.query({
       query: ({ songid }) => `/tracks/details?track_id=${songid}`,
     }),
+    getArtistDetails: builder.query({
+      query: (artistId) => `/artists/details?artist_id=${artistId}`,
+    }),
   }),
 });
 
-export const { useGetSongDetailsQuery } = shazamLyricsApi;
+export const { useGetSongDetailsQuery, useGetArtistDetailsQuery } =
+  shazamLyricsApi;

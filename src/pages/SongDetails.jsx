@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable nonblock-statement-body-position */
 /* eslint-disable operator-linebreak */
 /* eslint-disable quotes */
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";
+import { DetailsHeader, Error, Loader } from "../components";
 
 import { setActiveSong, playPause } from "../redux/features/playerSlice";
 import { useGetSongDetailsQuery } from "../redux/fetchings/shazamLyrics";
@@ -11,8 +13,17 @@ const SongDetails = () => {
   const dispatch = useDispatch();
   const { songid } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { data: songData, isFetching: isFetchingSongDetails } =
-    useGetSongDetailsQuery({ songid });
+  const {
+    data: songData,
+    isFetching: isFetchingSongDetails,
+    error,
+  } = useGetSongDetailsQuery({ songid });
+
+  if (isFetchingSongDetails) {
+    return <Loader title="searching song details" />;
+  }
+
+  if (error) return <Error />;
 
   console.log(songData);
   let lyricsText = null;

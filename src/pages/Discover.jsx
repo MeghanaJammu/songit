@@ -1,15 +1,20 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable import/no-duplicates */
 /* eslint-disable quotes */
 import { useDispatch, useSelector } from "react-redux";
 
-import { Error, Loader, SongCard } from "../components";
+import { Error, Loader, GenreCard } from "../components";
 import { genres } from "../assets/constants";
-import { useGetTopChartsQuery } from "../redux/fetchings/shazam";
+import { selectGenreListId } from "../redux/features/playerSlice";
+import { useGetByGenreQuery } from "../redux/fetchings/shazam";
 
 const Discover = () => {
   const dispatch = useDispatch();
-  const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { data, isFetching, error } = useGetTopChartsQuery();
-  const genreTitle = "Pop";
+  const { activeSong, isPlaying, genreListId } = useSelector(
+    (state) => state.player
+  );
+  const { data, isFetching, error } = useGetByGenreQuery(genreListId || "POP");
+  const genreTitle = genres.find(({ value }) => value === genreListId)?.title;
 
   if (isFetching) return <Loader title="Loading your songsss..." />;
 
@@ -24,9 +29,9 @@ const Discover = () => {
           Discover YourSelf in {genreTitle}
         </h2>
         <select
-          value=""
+          value={genreListId || "POP"}
           className="bg-black text-gray-300 p-3 text-sm rounded-lg outline-none sm:mt-0 mt-5"
-          onChange={() => {}}
+          onChange={(e) => dispatch(selectGenreListId(e.target.value))}
         >
           {genres.map((genre) => (
             <option key={genre.value} value={genre.value}>
@@ -37,7 +42,7 @@ const Discover = () => {
       </div>
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
         {data.map((song, i) => (
-          <SongCard
+          <GenreCard
             isPlaying={isPlaying}
             activeSong={activeSong}
             key={song.id}
