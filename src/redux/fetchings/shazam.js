@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable comma-dangle */
 /* eslint-disable quotes */
@@ -10,7 +11,7 @@ export const shazamApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         "x-rapidapi-key",
-        "459395da6amsh780423b2e732f18p162a45jsn32a3d58a41de"
+        "459395da6amsh780423b2e732f18p162a45jsn32a3d58a41de" /*your own api key here */
       );
       headers.set("X-RapidAPI-Host", "shazam-core.p.rapidapi.com");
       return headers;
