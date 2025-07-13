@@ -12,6 +12,8 @@ const SearchRes = ({ song, isPlaying, i, activeSong, data }) => {
   };
 
   const handlePlayClick = () => {
+    console.log(activeSong);
+    console.log(song);
     dispatch(setActiveSong({ song, data, i }));
     dispatch(playPause(true));
   };

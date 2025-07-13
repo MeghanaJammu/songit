@@ -35,7 +35,8 @@ const Player = ({
     <audio
       src={
         activeSong?.attributes?.previews?.[0]?.url ||
-        activeSong?.hub?.actions[1]?.uri
+        activeSong?.hub?.actions?.[1]?.uri ||
+        activeSong?.track?.hub?.actions?.[1]?.uri
       }
       ref={ref}
       loop={repeat}
